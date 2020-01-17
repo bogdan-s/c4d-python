@@ -76,7 +76,7 @@ def AddLongDataType(obj) :
 ```
 
 ```python
-source: https://plugincafe.maxon.net/topic/11467/access-custom-user-data-by-name-not-by-id
+#source: https://plugincafe.maxon.net/topic/11467/access-custom-user-data-by-name-not-by-id
 def createIntSliderUserData(obj, value, sliderText=""):
     """
     Create a slider of integer on the given object.
