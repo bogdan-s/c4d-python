@@ -51,3 +51,40 @@ Option: 1
 Label: IK
 
 ```
+
+### Add User Data
+```python
+def AddLongDataType(obj) :
+    if obj is None: return
+  
+    bc = c4d.GetCustomDatatypeDefault(c4d.DTYPE_LONG) # Create default container
+    bc[c4d.DESC_NAME] = "Test"                        # Rename the entry
+  
+    element = obj.AddUserData(bc)     # Add userdata container
+    
+    for i in range(0, element.GetDepth()) :
+        print element[i].id                  # element[i] is a DescLevel object
+        print element[i].dtype
+    
+    # element[0] is for c4d.ID_USERDATA
+    # element[1] is for our user data
+    
+    print "Added user data : ", element[1].id
+    
+    obj[element] = 30                 # Assign a value
+    c4d.EventAdd()                    # Update
+```
+
+### Remove User Data
+```python
+def RemoveLongDataType(obj) :
+    for element, bc in obj.GetUserDataContainer() :
+        if element[1].dtype == c4d.DTYPE_LONG:
+            if obj.RemoveUserData(element) :
+                print "Removed user data : ", element[1].id
+            
+            # To remove the data we could also call:
+            # obj.RemoveUserData(element[1].id)
+            # obj.RemoveUserData([c4d.ID_USERDATA, element[1].id])
+    c4d.EventAdd()                    # Update
+```
