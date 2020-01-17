@@ -75,6 +75,27 @@ def AddLongDataType(obj) :
     c4d.EventAdd()                    # Update
 ```
 
+```python
+source: https://plugincafe.maxon.net/topic/11467/access-custom-user-data-by-name-not-by-id
+def createIntSliderUserData(obj, value, sliderText=""):
+    """
+    Create a slider of integer on the given object.
+    :param value: int => default value of the slider
+    :param sliderText: the name of the slider
+    """
+    
+    bc = c4d.GetCustomDatatypeDefault(c4d.DTYPE_LONG)
+    bc[c4d.DESC_CUSTOMGUI] = c4d.CUSTOMGUI_LONGSLIDER
+    bc[c4d.DESC_NAME] = sliderText
+    bc[c4d.DESC_MIN] = 10
+    bc[c4d.DESC_MAX] = 100
+    description = obj.AddUserData(bc)
+    if description is None:
+        raise RuntimeError("Failed to creates a UserData.")
+    
+    obj[description] = value
+    return description
+```
 ### Remove User Data
 ```python
 def RemoveLongDataType(obj) :
@@ -88,3 +109,34 @@ def RemoveLongDataType(obj) :
             # obj.RemoveUserData([c4d.ID_USERDATA, element[1].id])
     c4d.EventAdd()                    # Update
 ```
+
+### Access User Data By Its Name
+```python
+source: https://plugincafe.maxon.net/topic/11467/access-custom-user-data-by-name-not-by-id/2
+def IsUserDataPresentByName(obj, name):
+    """
+    Check if an user data parameter is already named like that on the passed obj
+    :param obj: Any object that can holds User Data
+    :param name: the name to looking for
+    """
+    
+    if op is None:
+        raise TypeError("obj is none.")
+    
+    if not name or not isinstance(name, str):
+        raise TypeError("name is not valid.")
+    
+    # Iterate over all users data description
+    for userDataId, bc in obj.GetUserDataContainer():
+        
+        # Retrieves the current name we iterates
+        currentName = bc.GetString(c4d.DESC_NAME)
+        
+        # If the name is the same return True
+        if currentName == name:
+            return True
+        
+    # If we ended the loop without returning that means we didn't found our description
+    return False
+```
+
