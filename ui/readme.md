@@ -37,9 +37,8 @@ if __name__ == "__main__":
 ```python
 import c4d
 from c4d import bitmaps, documents, gui, plugins, threading, utils
-# PLUGIN_ID Should be unique in ALL plug-in ecosystem.
-# Get yours on this website https://developers.maxon.net/?page_id=3224
-PLUGIN_ID   = 18113289  # Just test ID. Not for production. 
+
+# PLUGIN_ID is optional 
 class MyDialog(c4d.gui.GeDialog):
     def CreateLayout(self):
         return True
@@ -51,5 +50,5 @@ class MyDialog(c4d.gui.GeDialog):
         return True
 if __name__ == "__main__":
     dlg = MyDialog()
-    dlg.Open(dlgtype=c4d.DLG_TYPE_ASYNC, pluginid=PLUGIN_ID)
+    dlg.Open(dlgtype=c4d.DLG_TYPE_ASYNC)
 ```
