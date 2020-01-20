@@ -1,7 +1,6 @@
 # FBX import in Blender does not support hierarchical grouping when a geometry is skinned
 # The output file of this script is used for another script in Blender
 
-
 import c4d
 import json
 
