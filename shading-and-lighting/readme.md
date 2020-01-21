@@ -1,4 +1,4 @@
-### Materials are stored at two levels: object and data. This distinction is useful when you ‘duplicate linked’ Alt+ D an object.
+Materials are stored at two levels: object and data. This distinction is useful when you ‘duplicate linked’ Alt+ D an object.
 
 - If the link is ‘OBJECT’: each duplicate can have its own material in the material slot
 - If the link is ‘DATA’: all duplicates will share the same material
