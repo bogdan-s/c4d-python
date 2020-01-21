@@ -57,9 +57,15 @@ tex_node = node_tree.nodes.new("ShaderNodeTexImage")
 diffuse_node = nodes.new('ShaderNodeBsdfDiffuse')
 diffuse_node.location = (100,100)
 
+
     # Connect Nodes
 node_tree.links.new(node_A.inputs['InputName'], node_B.outputs['OutputName']
 port_name_list = [input.name for input in Node_A.inputs]
+
+bsdf = mat.node_tree.nodes["Principled BSDF"]
+tex_node = mat.node_tree.nodes.new('ShaderNodeTexImage')
+tex_node.image = bpy.data.images.load("C:\\path\\to\\im.jpg")
+mat.node_tree.links.new(bsdf.inputs['Base Color'], tex_node.outputs['Color'])
 
 # Modify Nodes
 node.inputs['Metallic'].default_value = 1.0
