@@ -34,4 +34,7 @@
 -	messages and events are processed during that time. So, a thread that calls SpecialEventAdd()
 -	wouldn’t allow this either.
 -	You can use asynchronous dialogs whenever you want, just not in scripts. Scripts only live while they’re being executed, so asynchronous dialogs can’t work.
+- Description based GUI's are mostly used with tag and object creation plugins.
+- You've got it backwards Scott - ResEdit only works with the dialog resource syntax for plugins. It doesn't work with the description resource syntax for tags & objects.
+
 
