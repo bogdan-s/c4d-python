@@ -41,4 +41,13 @@
 - nes emulation plugin mario
 
 
-
+```python
+import c4d  
+data = c4d.gui.FontDialog()  
+  
+for k, v in data:  
+  print k, v  
+  
+font = c4d.FontData()  
+font.SetFont(font)
+```
