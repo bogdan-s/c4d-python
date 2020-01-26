@@ -36,5 +36,7 @@
 -	You can use asynchronous dialogs whenever you want, just not in scripts. Scripts only live while they’re being executed, so asynchronous dialogs can’t work.
 - Description based GUI's are mostly used with tag and object creation plugins.
 - You've got it backwards Scott - ResEdit only works with the dialog resource syntax for plugins. It doesn't work with the description resource syntax for tags & objects.
+- In general parameters of objects (or tags, materials,...) are specified in so called Descriptions (also here). With User Data it's a bit special, as you first need to obtain the User Data containers, which store the Descriptions, via GetUserDataContainer().
+
 
 
