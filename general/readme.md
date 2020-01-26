@@ -18,6 +18,7 @@
 -	When you get to more complicated scripts, a “call command” is basically breaking the codeflow. You can’t control the undo steps that it makes, and you are never really sure what exactly happens behind the “call command”.
 -	When looking through the Cinema 4D Python documentation we find the c4d.documents module that has all the functionality to access our scene. The function GetActiveDocument() function returns the currently active scene as a BaseDocument object.
 -	Now that we know how to access the scene we are left with finding out how to get a list of the selected objects in the scene. Looking at BaseDocument we see that it has a GetActiveObjects() method that returns a list of BaseObject objects.
+- nes emulation plugin mario
 -	op.GetName-
 -	Almost all of them are methods. GetTime()
 -	Object and Tag types
