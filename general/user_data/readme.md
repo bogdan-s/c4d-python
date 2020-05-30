@@ -3,9 +3,9 @@
 ```python
 import c4d
 from c4d import gui
-for id, descriptionBC in op.GetUserDataContainer():
+for descid, descriptionBC in op.GetUserDataContainer():
     print("User Data ID: " + str(descid[1].id))
-    print("User Data Value: " + str(op[id]))
+    print("User Data Value: " + str(op[descid]))
     print("User Data Name: " + descriptionBC[c4d.DESC_NAME])
 ```
 
