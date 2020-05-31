@@ -1,4 +1,6 @@
 # Add Edit Slider Resets to Zero
+# Ref https://plugincafe.maxon.net/topic/11917/setting-parameters-from-json-file
+
 import c4d
 from c4d import bitmaps, documents, gui, plugins, threading, utils
 
