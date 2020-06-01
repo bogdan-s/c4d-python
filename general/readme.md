@@ -1,26 +1,27 @@
-# Random Notes
+# General Commands
 
-```python
-# Get all objects
-# Get all objects by type
-# Get selected object
-doc.GetActiveObject() # method1
-op #method2
-# Get object by full name
-doc.SearchObject("objectName")
-# Get object by partial name
-# Get object from Python Tag
-op.GetObject()
-# Select tag from selected object
-op.GetTag(objectID)
-# Select Material
-# Select Tag
-# Select by Same Layer
-# Select objects by hierarchy
-# Query a parameter 
-
+### General Commands
+- Get All Objects
+- Get All Objects by Type
+- Get Selected Object: 
+  - method 1: `doc.GetActiveObject()`
+  - method 2: `op`
+- Get Object by Full Name: `doc.SearchObject("object_name")
+- Get Object by Partial Name:
+- Get Object from Python Tag: `op.GetObject()`
+- Get Tag from Selected Object: `op.GetTag(objectID)`
+- Get Material
+- Get Tag
+- Select by Same Layer
+- Query Parameter:
+  - ```
+# Dragging into the console
+Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
+# Dragging into the script manager and modify
+Cube = doc.SearchObject("Cube")
+print Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
 ```
-
+-
 
 - Empirical evidence would suggest that you should be calling c4d.threading.GeIsMainThread() before attempting to access the thread via c4d.threading.GeGetCurrentThread().
 - And scripts in Script Manager are actually a very simplified version of CommandData plugins, in a way that these are basically one command per script.
