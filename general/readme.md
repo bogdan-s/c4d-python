@@ -1,5 +1,27 @@
 # Random Notes
 
+```python
+# Get all objects
+# Get all objects by type
+# Get selected object
+doc.GetActiveObject() # method1
+op #method2
+# Get object by full name
+doc.SearchObject("objectName")
+# Get object by partial name
+# Get object from Python Tag
+op.GetObject()
+# Select tag from selected object
+op.GetTag(objectID)
+# Select Material
+# Select Tag
+# Select by Same Layer
+# Select objects by hierarchy
+# Query a parameter 
+
+```
+
+
 - Empirical evidence would suggest that you should be calling c4d.threading.GeIsMainThread() before attempting to access the thread via c4d.threading.GeGetCurrentThread().
 - And scripts in Script Manager are actually a very simplified version of CommandData plugins, in a way that these are basically one command per script.
 - The thing is, opposite to a script and instead of implementing CommandData.Execute() you can also implement GetSubContainer() and ExecuteSubID(). By this you can have several commands in one single CommandData plugin, which can then be assigned with different keyboard shortcuts each, either in code or in Customize Commands manager
