@@ -7,11 +7,11 @@
 * Get Object by Full Name: `doc.SearchObject("object_name")`
 * Get Object by Partial Name
 * Get Object from Python Tag: `op.GetObject()`
-- Get Tag from Selected Object: `op.GetTag(objectID)`
-- Get Material
-- Get Tag
-- Select by Same Layer
-- Query Parameter:
+* Get Tag from Selected Object: `op.GetTag(objectID)`
+* Get Material
+* Get Tag
+* Select by Same Layer
+* Query Parameter:
   - The easiest way to query the parameter is to either drag it into the `console` and hit `enter` or drag it directly to the `script manager`. Be it noted that you need to modify it to a proper object, if you query it using the script manager. You can see a better illustration in the [official documentatioin](https://developers.maxon.net/docs/Cinema4DPythonSDK/html/manuals/introduction/python_console.html)
       ```python
       # Dragging into the console
