@@ -180,3 +180,24 @@ op[desc_id] # First User Data Value
 # Get User Data Index
 index = desc_id[1].id
 ```
+
+### Random
+```python
+# User Data
+
+for id, bc in op.GetUserDataContainer():
+    print id, bc
+
+#Alternative
+
+for descId, bc in op.GetUserDataContainer():
+    print "*"*5,descId,"*"*5
+    for key, val in bc:
+        for txt, i in c4d.__dict__.iteritems():
+            if key == i and txt[:5]=="DESC_":
+                print txt,"=",val
+                break
+        else:
+            print key,"=",val
+
+```
