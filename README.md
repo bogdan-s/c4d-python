@@ -1,12 +1,12 @@
 ### General Commands
-- Get All Objects
-- Get All Objects by Type
-- Get Selected Object 
-  - method 1: `doc.GetActiveObject()`
-  - method 2: `op`
-- Get Object by Full Name: `doc.SearchObject("object_name")`
-- Get Object by Partial Name
-- Get Object from Python Tag: `op.GetObject()`
+* Get All Objects
+* Get All Objects by Type
+* Get Selected Object 
+  * method 1: `doc.GetActiveObject()`
+  * method 2: `op`
+* Get Object by Full Name: `doc.SearchObject("object_name")`
+* Get Object by Partial Name
+* Get Object from Python Tag: `op.GetObject()`
 - Get Tag from Selected Object: `op.GetTag(objectID)`
 - Get Material
 - Get Tag
