@@ -13,25 +13,25 @@
 - Select by Same Layer
 - Query Parameter:
   - The easiest way to query the parameter is to either drag it into the `console` and hit `enter` or drag it directly to the `script manager`. Be it noted that you need to modify it to a proper object, if you query it using the script manager. You can see a better illustration in the [official documentatioin](https://developers.maxon.net/docs/Cinema4DPythonSDK/html/manuals/introduction/python_console.html)
-```python
-# Dragging into the console
-Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
-# Dragging into the script manager and modify
-Cube = doc.SearchObject("Cube")
-print Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
-```
+   ```python
+    # Dragging into the console
+    Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
+    # Dragging into the script manager and modify
+    Cube = doc.SearchObject("Cube")
+    print Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
+    ```
 - Set Parameter
   - Method 1: Like quering, you can just the drag the parameter but this time add a = sign and the corresponding value.
   - `Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] = 300`
   - Method 2:
 ```python
-# Get object
-bc = op.GetDataInstance()
+bc = op.GetDataInstance() # Get object
 
-# Note, c4d.BaseContainer.GetDataInstance() returns the original container, NOT A COPY. Modifieng this container will directly modify the object’s parameters. If you want to get a copy, use c4d.BaseObject.GetData()
+# Note: c4d.BaseContainer.GetDataInstance() returns the original container, NOT A COPY. 
+# Modifying this container will directly modify the object’s parameters.
+# If you want to get a copy, use c4d.BaseObject.GetData()
 
-# Set Parameter
-bc.SetVector(c4d.PRIM_CUBE_LEN, c4d.Vector(500, 100, 20))
+bc.SetVector(c4d.PRIM_CUBE_LEN, c4d.Vector(500, 100, 20)) # Set Parameter
 ```
 
 - Empirical evidence would suggest that you should be calling c4d.threading.GeIsMainThread() before attempting to access the thread via c4d.threading.GeGetCurrentThread().
