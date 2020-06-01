@@ -1,3 +1,7 @@
+### General
+* In general parameters of objects (or tags, materials,…) are specified in so-called Descriptions (also here). With User Data it's a bit special, as you first need to obtain the User Data containers, which store the Descriptions, via GetUserDataContainer().
+* 
+
 ### Query all User Data with their CURRENT values
 
 ```python
@@ -140,3 +144,39 @@ def IsUserDataPresentByName(obj, name):
     return False
 ```
 
+### Alternative User Data Codes
+```
+# Alternative Code
+import c4d
+
+def main():
+    if op is None:
+        return
+    description = op.GetDescription(c4d.DESCFLAGS_DESC_NONE)
+    for bc, paramid, groupid in description:
+        print paramid # see structure of DescIDs, user data has two levels (except for the root iuser data groups)
+        if paramid[0].id == c4d.ID_USERDATA:
+            # exclude groups (including the root one) from inspection
+            if len(paramid) > 1 and paramid[1].dtype != c4d.DTYPE_GROUP:
+                # the second DescLevel has the user data ID and type
+                print 'User data ID/type:', paramid[1].id, paramid[1].dtype
+                print 'Parameter: %s = %d' % (bc[c4d.DESC_NAME], op[paramid])
+
+if __name__=='__main__':
+    main()
+```
+
+```
+# Get User Data Name
+user_data = op.GetUserDataContainer()
+user_data[0][1].__getitem__(1) # First User Data Name
+user_data[1][1].__getitem__(1) # Second User Data Name
+
+# Get User Data Value 
+user_data = op.GetUserDataContainer()
+desc_id = user_data[0][0]
+op[desc_id] # First User Data Value 
+
+# Get User Data Index
+index = desc_id[1].id
+```
