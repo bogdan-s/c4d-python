@@ -13,7 +13,7 @@
 * Get Tag
 * Select by Same Layer
 * Query Parameter:
-  - The easiest way to query the parameter is to either drag it into the `console` and hit `enter` or drag it directly to the `script manager`. Be it noted that you need to modify it to a proper object, if you query it using the script manager. You can see a better illustration in the [official documentatioin](https://developers.maxon.net/docs/Cinema4DPythonSDK/html/manuals/introduction/python_console.html)
+  * The easiest way to query the parameter is to either drag it into the `console` and hit `enter` or drag it directly to the `script manager`. Be it noted that you need to modify it to a proper object, if you query it using the script manager. You can see a better illustration in the [official documentatioin](https://developers.maxon.net/docs/Cinema4DPythonSDK/html/manuals/introduction/python_console.html)
       ```python
       # Dragging into the console
       Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
@@ -22,10 +22,10 @@
       Cube = doc.SearchObject("Cube")
       Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] # Result 200.0
       ```
-- Set Parameter
-  - Method 1: Like quering, you can just the drag the parameter but this time add a = sign and the corresponding value.
-  - `Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] = 300`
-  - Method 2:
+* Set Parameter
+  * Method 1: Like quering, you can just the drag the parameter but this time add a = sign and the corresponding value.
+  * `Cube[c4d.PRIM_CUBE_LEN,c4d.VECTOR_X] = 300`
+  * Method 2:
       ```python
       bc = op.GetDataInstance() # Get object
 
@@ -35,20 +35,20 @@
 
       bc.SetVector(c4d.PRIM_CUBE_LEN, c4d.Vector(500, 100, 20)) # Set Parameter
       ```
-* All capital commands/attribute in C4D requires `c4d` as a prefix. For instance, `[ID_BASELIST_NAME]` should be `[c4d.ID_BASELIST_NAME]` for it to work
-* Get Current Frame `c4d.documents.GetActiveDocument().GetTime().GetFrame(doc.GetFps())`
-* Empirical evidence would suggest that you should be calling c4d.threading.GeIsMainThread() before attempting to access the thread via c4d.threading.GeGetCurrentThread().
-* And scripts in Script Manager are actually a very simplified version of CommandData plugins, in a way that these are basically one command per script.
-* The thing is, opposite to a script and instead of implementing CommandData.Execute() you can also implement GetSubContainer() and ExecuteSubID(). By this you can have several commands in one single CommandData plugin, which can then be assigned with different keyboard shortcuts each, either in code or in Customize Commands manager
-* Quick documentation: Print help(Cube). This will return all available commands for the cube object
-*	For Tags it’s T[tagname] and similarly for Objects is O[object] Onull, Ocube, Osphere etc you can also call shader types with X[shader] Xgradient, Xlayer
-*	Capital letters most likely represent global parameters. Refrain in using it as a variable.
-* Special defined variables: `doc` (refers to the active document) and `op` (refers to the active object).
-* It's explicit equivalent is `doc = c4d.documents.GetActiveDocument()` and `op = doc.GetActiveObject()`
-*	Computers like radians, but it is easier for user to manipulate in degrees.
-* Just use a utility conversion such as `c4d.utils.DegToRad(d)`
-*	DESCID is like an address to all the attribute in the attribute manager
-*	GetMg() retrieve the global matrix
+- All capital commands/attribute in C4D requires `c4d` as a prefix. For instance, `[ID_BASELIST_NAME]` should be `[c4d.ID_BASELIST_NAME]` for it to work
+- Get Current Frame `c4d.documents.GetActiveDocument().GetTime().GetFrame(doc.GetFps())`
+- Empirical evidence would suggest that you should be calling c4d.threading.GeIsMainThread() before attempting to access the thread via c4d.threading.GeGetCurrentThread().
+- And scripts in Script Manager are actually a very simplified version of CommandData plugins, in a way that these are basically one command per script.
+- The thing is, opposite to a script and instead of implementing CommandData.Execute() you can also implement GetSubContainer() and ExecuteSubID(). By this you can have several commands in one single CommandData plugin, which can then be assigned with different keyboard shortcuts each, either in code or in Customize Commands manager
+- Quick documentation: Print help(Cube). This will return all available commands for the cube object
+-	For Tags it’s T[tagname] and similarly for Objects is O[object] Onull, Ocube, Osphere etc you can also call shader types with X[shader] Xgradient, Xlayer
+-	Capital letters most likely represent global parameters. Refrain in using it as a variable.
+- Special defined variables: `doc` (refers to the active document) and `op` (refers to the active object).
+- It's explicit equivalent is `doc = c4d.documents.GetActiveDocument()` and `op = doc.GetActiveObject()`
+-	Computers like radians, but it is easier for user to manipulate in degrees.
+- Just use a utility conversion such as `c4d.utils.DegToRad(d)`
+-	DESCID is like an address to all the attribute in the attribute manager
+-	GetMg() retrieve the global matrix
 *	One disadvantage of the CallCommand() in Cinema 4D is the way it records separate Undo steps for each call to the function. This makes it impossible to have a single Undo for the whole script as the separate steps are recorded to the Undo stack individually.
 *	When you get to more complicated scripts, a “call command” is basically breaking the codeflow. You can’t control the undo steps that it makes, and you are never really sure what exactly happens behind the “call command”.
 * GetBit Active to test if it is selected
